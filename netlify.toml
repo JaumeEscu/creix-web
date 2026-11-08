@@ -1,0 +1,13 @@
+[build]
+  command = "mkdir -p public && python3 build.py public && python3 pages.py public"
+  publish = "public"
+
+[build.environment]
+  PYTHON_VERSION = "3.11"
+
+# Mentre la web no estigui a creixsalut.com, que Google no indexi la còpia de prova.
+# Treure aquest bloc el dia que es connecti el domini.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
